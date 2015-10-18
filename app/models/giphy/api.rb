@@ -1,12 +1,12 @@
 module Giphy
   class API
     BASE_URL = 'http://api.giphy.com/v1/gifs/'
-    API_KEY  = ENV["GIPHY_API_KEY"]
+    API_KEY  = ENV['GIPHY_API_KEY']
 
     def self.search(query, options = { limit: nil, offset: nil, rating: nil, fmt: nil })
       params = build_params(options.merge(q: query))
-      url = BASE_URL + "search?" + params
-      Giphy::Gif.new_collection(request(url))
+      url = BASE_URL + 'search?' + params
+      Giphy::Gif.new_collection(request(url)['data'])
     end
 
     # def self.by_id(id)
@@ -33,7 +33,7 @@ module Giphy
 
       def request(url)
         open_uri = open(url)
-        JSON.load(open_uri)["data"]
+        JSON.load(open_uri)
       end
 
       def build_params(params)

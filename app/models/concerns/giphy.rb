@@ -1,0 +1,2 @@
+module Giphy
+end
