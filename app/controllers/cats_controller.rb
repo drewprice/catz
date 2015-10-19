@@ -17,6 +17,10 @@ class CatsController < ApplicationController
     end
   end
 
+  def show
+    @cat = Cat.from_giphy(params[:giphy_id])
+  end
+
   private
 
   def find_or_initialize

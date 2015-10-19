@@ -1,1 +1,5 @@
 <img src="<%= cat.gif.url %>" id="<%= cat.giphy_id %>" />
+
+<% if cat.id %>
+  <%= link_to 'see it', cat_path(cat.giphy_id) %>
+<% end %>

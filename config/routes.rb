@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'cats', to: 'cats#index', as: :cats
   post 'cats', to: 'cats#create', as: :create_cat
+  get 'cats/:giphy_id', to: 'cats#show', as: :cat
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

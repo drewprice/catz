@@ -2,7 +2,7 @@ class Giphy
   BASE_URL = 'http://api.giphy.com/v1/gifs/'
   API_KEY  = ENV["GIPHY_API_KEY"]
 
-  def self.search(query, options = { limit: nil, offset: nil, rating: nil, fmt: nil })
+  def self.search(query, options = { limit: nil, offset: nil, rating: 'y,g', fmt: nil })
     params = build_params(options.merge(q: query))
     url = BASE_URL + 'search?' + params
     Giphy::Response.parse(request(url))
@@ -23,7 +23,7 @@ class Giphy
   # def self.translate(phrase)
   # end
 
-  def self.random(options = { tag: nil, rating: nil, fmt: nil })
+  def self.random(options = { tag: nil, rating: 'y,g', fmt: nil })
     params = build_params(options)
     url = BASE_URL + 'random?' + params
     Giphy::Response.parse(request(url))
