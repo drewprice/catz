@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  get 'sessions/create'
+
   root 'cats#new'
 
   get 'cats', to: 'cats#index', as: :cats
   post 'cats', to: 'cats#create', as: :create_cat
 
+  get '/auth/:provider/callback', to: 'sessions#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
