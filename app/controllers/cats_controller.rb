@@ -19,6 +19,8 @@ class CatsController < ApplicationController
 
   def show
     @cat = Cat.from_giphy(params[:giphy_id])
+  rescue
+    redirect_to '/404'
   end
 
   private

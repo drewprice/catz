@@ -20,7 +20,7 @@ class TweetLink
   def params
     {
       text: 'LOOK AT DIS KITTEH, U MITE LIEK IT?',
-      url: "#{ENV["URL"]}cats/#{giphy_id}",
+      url: "#{ENV["URL"]}#{giphy_id}",
       hashtags: 'werzukittehz'
     }
   end
