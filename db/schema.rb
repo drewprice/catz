@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20151019040408) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "cats", force: :cascade do |t|
     t.string   "giphy_id"
     t.datetime "created_at", null: false
