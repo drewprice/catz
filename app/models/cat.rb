@@ -1,9 +1,10 @@
 class Cat < ActiveRecord::Base
-  attr_reader :gif
+  attr_reader :gif, :tweet
 
   validates :giphy_id, presence: true, uniqueness: true
 
   after_find :giphy_sync
+  after_initialize :build_tweet
 
   def self.from_giphy(giphy_id = nil)
     gif = giphy_id ? Giphy.by_id(giphy_id) : Giphy.random(tag: 'cat')
@@ -19,6 +20,10 @@ class Cat < ActiveRecord::Base
   end
 
   private
+
+  def build_tweet
+    @tweet = TweetLink.new(self.giphy_id)
+  end
 
   def giphy_sync
     @gif = Giphy.by_id(giphy_id)
