@@ -1,0 +1,6 @@
+<% if user_signed_in? %>
+  <%= current_user.nickname %>
+  <img src="<%= current_user.image %>" alt="current_user.name" />
+<% else %>
+  <%= link_to 'Sign in with Twitter', '/auth/twitter' %>
+<% end %>

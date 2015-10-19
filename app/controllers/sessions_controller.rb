@@ -3,6 +3,6 @@ class SessionsController < ApplicationController
     user = User.from_oauth(env['omniauth.auth'])
     session[:user_id] = user.id
 
-    redirect_to root_path, notice: "Hey. Welcome to the cats."
+    redirect_to root_path, notice: "Hay. Welcom 2 teh kats."
   end
 end
