@@ -8,11 +8,17 @@ class Giphy
     Giphy::Response.parse(request(url))
   end
 
-  # def self.by_id(id)
-  # end
+  def self.by_id(id)
+    params = build_params
+    url = BASE_URL + "#{id}?" + params
+    Giphy::Response.parse(request(url))
+  end
 
-  # def self.by_ids(ids)
-  # end
+  def self.by_ids(*ids)
+    params = build_params({ ids: ids.join(',') })
+    url = BASE_URL.sub(/\/$/, '?') + params
+    Giphy::Response.parse(request(url))
+  end
 
   # def self.translate(phrase)
   # end
@@ -34,7 +40,7 @@ class Giphy
       JSON.load(open_uri)["data"]
     end
 
-    def build_params(params)
+    def build_params(params = {})
       params.delete_if { |k, v| v.nil? }
       params.merge(api_key: API_KEY).map { |k, v| "#{k}=#{v}" }.join('&')
     end

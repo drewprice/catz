@@ -1,5 +1,5 @@
 class Cat < ActiveRecord::Base
-  attr_reader :gif, :giphy_id
+  attr_reader :gif
 
   validates :giphy_id, presence: true, uniqueness: true
 
@@ -7,17 +7,16 @@ class Cat < ActiveRecord::Base
 
   def self.from_giphy
     gif = Giphy.random(tag: 'cat', rating: 'y,g')
-    new(gif: gif)
+    new(gif: gif, giphy_id: gif.id)
   end
 
   def gif=(gif)
     @gif = gif
-    @giphy_id = gif.id
   end
 
   private
 
   def giphy_sync
-    @gif = Giphy.find(giphy_id)
+    @gif = Giphy.by_id(giphy_id)
   end
 end

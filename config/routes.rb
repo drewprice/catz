@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'cats#new'
 
+  get 'cats', to: 'cats#index', as: :cats
   post 'cats', to: 'cats#create', as: :create_cat
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -9,7 +9,12 @@ class CatsController < ApplicationController
 
   def create
     @cat = Cat.new(cat_params)
-    redirect_to root_path if @cat.save
+
+    if @cat.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def moar
