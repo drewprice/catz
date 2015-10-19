@@ -1,18 +1,26 @@
-module Giphy
-  class Gif
+class Giphy
+  class Response
     attr_reader :id, :images, :rating
 
-    def self.new_collection(collection)
-      collection.map { |obj| new(obj) }
+    def self.parse(data)
+      if data.is_a? Array
+        data.map { |obj| new(obj) }
+      else
+        new(data)
+      end
     end
 
     def initialize(data = {})
       data.each { |k, v| instance_variable_set("@#{k}", v) }
-      open_structize_images
+      open_structize_images if images
     end
 
     def url
-      images.fixed_width.url
+      if images
+        images.fixed_width.url
+      else
+        @image_url
+      end
     end
 
     private

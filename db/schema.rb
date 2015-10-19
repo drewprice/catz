@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151018233311) do
+ActiveRecord::Schema.define(version: 20151019040408) do
 
   create_table "cats", force: :cascade do |t|
     t.string   "giphy_id"

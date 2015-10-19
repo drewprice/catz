@@ -1,15 +1,23 @@
 class Cat < ActiveRecord::Base
-  attr_reader :url
+  attr_reader :gif, :giphy_id
 
-  def self.giphy(count = 1)
-    gifs = Giphy::API.search('cats', limit: count, rating: 'y,g')
-    gifs.map { |gif| new_from_gif(gif) }
+  validates :giphy_id, presence: true, uniqueness: true
+
+  after_find :giphy_sync
+
+  def self.from_giphy
+    gif = Giphy.random(tag: 'cat', rating: 'y,g')
+    new(gif: gif)
   end
 
-  def self.new_from_gif(gif)
-    new.tap do |cat|
-      cat.giphy_id = gif.id
-      cat.instance_variable_set('@url', gif.url)
-    end
+  def gif=(gif)
+    @gif = gif
+    @giphy_id = gif.id
+  end
+
+  private
+
+  def giphy_sync
+    @gif = Giphy.find(giphy_id)
   end
 end
