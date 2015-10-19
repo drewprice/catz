@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  root 'cats#index'
+
+  get 'cats', to: 'cats#index', as: :cats
+  get 'cats/moar', to: 'cats#moar', as: :moar
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
