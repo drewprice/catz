@@ -11,6 +11,10 @@ module Giphy
       open_structize_images
     end
 
+    def url
+      images.fixed_width.url
+    end
+
     private
 
     def open_structize_images
