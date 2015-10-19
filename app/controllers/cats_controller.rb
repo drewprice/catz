@@ -1,4 +1,6 @@
 class CatsController < ApplicationController
+  before_action :find_or_initialize, only: :create
+
   def index
     @cats = Cat.all
   end
@@ -8,8 +10,6 @@ class CatsController < ApplicationController
   end
 
   def create
-    @cat = Cat.new(cat_params)
-
     if @cat.save
       redirect_to root_path
     else
@@ -17,10 +17,12 @@ class CatsController < ApplicationController
     end
   end
 
-  def moar
-  end
-
   private
+
+  def find_or_initialize
+    @cat = Cat.find_by(cat_params)
+    @cat = Cat.new(cat_params) unless @cat
+  end
 
   def cat_params
     params.require(:cat).permit(:giphy_id)
