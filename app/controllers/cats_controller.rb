@@ -1,4 +1,5 @@
 class CatsController < ApplicationController
+  before_action :set_cat, only: :destroy
   before_action :find_or_initialize, only: :create
   before_filter :authenticate_user!, only: [:create, :index]
 
@@ -12,12 +13,9 @@ class CatsController < ApplicationController
 
   def create
     current_user.cats << @cat
+    @cat.save
 
-    if @cat.save
-      redirect_to root_path
-    else
-      render :new
-    end
+    render :new
   end
 
   def show
@@ -26,7 +24,16 @@ class CatsController < ApplicationController
     redirect_to '/404'
   end
 
+  def destroy
+    current_user.cats.delete(@cat)
+    render :new
+  end
+
   private
+
+  def set_cat
+    @cat = Cat.find_by(giphy_id: params[:giphy_id])
+  end
 
   def find_or_initialize
     @cat = Cat.find_by(cat_params)

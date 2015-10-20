@@ -3,13 +3,15 @@ Rails.application.routes.draw do
 
   root 'cats#new'
 
-  get 'cats', to: 'cats#index', as: :cats
-  get '/:giphy_id', to: 'cats#show', as: :cat
-  post '/:giphy_id', to: 'cats#create'
-
   get 'auth/failure', to: redirect('/')
   get 'auth/:provider/callback', to: 'sessions#create'
   delete 'sign-out', to: 'sessions#destroy', as: :sign_out
+
+  get 'cats', to: 'cats#index', as: :cats
+  get '/:giphy_id', to: 'cats#show', as: :cat
+  post '/:giphy_id', to: 'cats#create'
+  delete '/:giphy_id', to: 'cats#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

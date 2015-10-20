@@ -1,5 +1,5 @@
 <% if user_signed_in? && current_user.cats_include?(@cat) %>
-  <p>U LOV DIS KITTEH</p>
+  <%= render 'unlike' %>
 <% else %>
   <%= render 'form' %>
 <% end %>

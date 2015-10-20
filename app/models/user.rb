@@ -17,7 +17,6 @@ class User < ActiveRecord::Base
   end
 
   def cats_include?(cat)
-    binding.pry
     cats.map(&:giphy_id).include? cat.giphy_id
   end
 end
