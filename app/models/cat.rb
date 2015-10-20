@@ -11,10 +11,6 @@ class Cat < ActiveRecord::Base
 
   def self.from_giphy(giphy_id = nil)
     gif = giphy_id ? Giphy.by_id(giphy_id) : Giphy.random(tag: 'cat')
-    new_from_gif(gif)
-  end
-
-  def self.new_from_gif(gif)
     new(gif: gif, giphy_id: gif.id)
   end
 
