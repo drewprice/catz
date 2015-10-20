@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :likes
+  has_many :cats, through: :likes
+
   def self.from_oauth(auth)
     find_by(auth.slice('provider', 'uid')) || create_from_oauth(auth)
   end
@@ -11,5 +14,10 @@ class User < ActiveRecord::Base
       user.nickname = auth['info']['nickname']
       user.image    = auth['info']['image']
     end
+  end
+
+  def cats_include?(cat)
+    binding.pry
+    cats.map(&:giphy_id).include? cat.giphy_id
   end
 end

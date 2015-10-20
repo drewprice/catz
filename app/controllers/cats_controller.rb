@@ -1,8 +1,9 @@
 class CatsController < ApplicationController
   before_action :find_or_initialize, only: :create
+  before_filter :authenticate_user!, only: [:create, :index]
 
   def index
-    @cats = Cat.all
+    @cats = current_user.cats
   end
 
   def new
@@ -10,6 +11,8 @@ class CatsController < ApplicationController
   end
 
   def create
+    current_user.cats << @cat
+
     if @cat.save
       redirect_to root_path
     else

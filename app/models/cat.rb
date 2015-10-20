@@ -1,4 +1,7 @@
 class Cat < ActiveRecord::Base
+  has_many :likes
+  has_many :users, through: :likes
+
   attr_reader :gif, :tweet
 
   validates :giphy_id, presence: true, uniqueness: true

@@ -4,7 +4,7 @@
   <%= CatFact.get %>
 </p>
 <p>
-  <%= render 'form' %>
+  <%= render 'like' %>
 </p>
 <p>
   <%= render 'tweet' %>
@@ -12,6 +12,8 @@
 <p>
   <%= link_to 'Moar', root_path %>
 </p>
-<p>
-  <%= link_to 'Collecshun', cats_path %>
-</p>
+<% if user_signed_in? %>
+  <p>
+    <%= link_to 'Collecshun', cats_path %>
+  </p>
+<% end %>
