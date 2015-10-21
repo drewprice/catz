@@ -36,8 +36,8 @@ class CatsController < ApplicationController
   end
 
   def find_or_initialize
-    @cat = Cat.find_by(cat_params)
-    @cat = Cat.from_giphy(cat_params[:giphy_id]) unless @cat
+    @cat = Cat.find_by(giphy_id: params[:giphy_id])
+    @cat = Cat.from_giphy(params[:giphy_id]) unless @cat
   end
 
   def cat_params

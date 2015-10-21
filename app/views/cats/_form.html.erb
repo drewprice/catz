@@ -1,7 +1,0 @@
-<%= form_for @cat, url: cat_path(@cat.giphy_id), method: :post  do |f| %>
-  <%= render 'shared/errors', object: @cat %>
-
-  <%= f.hidden_field :giphy_id %>
-
-  <%= f.submit 'I can haz dis kitteh?', class: 'btn' %>
-<% end %>

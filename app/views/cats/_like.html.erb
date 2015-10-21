@@ -1,5 +1,9 @@
 <% if user_signed_in? && current_user.cats_include?(@cat) %>
-  <%= render 'unlike' %>
+  <%= link_to cat_path(@cat.giphy_id), method: :delete do %>
+    DISLIKE
+  <% end %>
 <% else %>
-  <%= render 'form' %>
+  <%= link_to cat_path(@cat.giphy_id), method: :post do %>
+    LIKE
+  <% end %>
 <% end %>
