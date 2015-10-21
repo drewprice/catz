@@ -7,14 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container">
+      <%= render 'layouts/header' %>
 
-<%= render 'users/status' %>
+      <%= render 'layouts/flash' %>
 
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, class: name %>
-<% end %>
+      <div class="jumbotron col-6">
+        <%= yield %>
+      </div>
 
-<%= yield %>
-
+      <footer class="footer">
+        <p>&copy; Drew Price 2015</p>
+      </footer>
+  </div>
 </body>
 </html>

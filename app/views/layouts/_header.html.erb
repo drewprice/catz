@@ -1,0 +1,22 @@
+<div class="header clearfix">
+  <nav>
+    <ul class="nav nav-pills pull-right">
+      <% if user_signed_in? %>
+        <li>
+          <%= current_user.nickname %>
+        </li>
+        <li>
+          <img src="<%= current_user.image %>" alt="current_user.name" />
+        </li>
+        <li>
+          <%= link_to "Sign out", sign_out_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'Sign in with Twitter', '/auth/twitter' %>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+  <h3 class="text-muted">WERZUKITTEHSDAD</h3>
+</div>
