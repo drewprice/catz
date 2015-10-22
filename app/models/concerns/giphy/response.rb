@@ -1,5 +1,6 @@
 class Giphy
   class Response
+    IMAGE_SIZE = 'original'
     attr_reader :id, :images, :rating
 
     def self.parse(data)
@@ -17,7 +18,7 @@ class Giphy
 
     def url
       if images
-        images.fixed_width.url
+        images.send(IMAGE_SIZE).url
       else
         @image_url
       end

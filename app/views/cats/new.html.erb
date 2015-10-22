@@ -1,11 +1,1 @@
-<h1>Cats#new</h1>
 <%= render @cat %>
-<p class="lead">
-  <%= CatFact.get %>
-</p>
-  <%= render 'like' %>
-  <%= render 'tweet' %>
-  <%= link_to 'Moar', root_path %>
-<% if user_signed_in? %>
-  <%= link_to 'Collecshun', cats_path %>
-<% end %>

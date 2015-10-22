@@ -3,20 +3,23 @@
     <ul class="nav nav-pills pull-right">
       <% if user_signed_in? %>
         <li>
-          <%= current_user.nickname %>
+          <%= link_to sign_out_path, method: :delete do %>
+            <%= current_user.nickname %>
+            <img src="<%= current_user.image %>" alt="current_user.name" class="img-circle" />
+          <% end %>
         </li>
         <li>
-          <img src="<%= current_user.image %>" alt="current_user.name" />
-        </li>
-        <li>
-          <%= link_to "Sign out", sign_out_path, method: :delete %>
+          <%= link_to cats_path do %>
+            <%= fa_icon 'archive 4x' %>
+          <% end %>
         </li>
       <% else %>
         <li>
-          <%= link_to 'Sign in with Twitter', '/auth/twitter' %>
+          <%= link_to '/auth/twitter' do %>
+            Sign in <%= fa_icon 'twitter' %>
+          <% end %>
         </li>
       <% end %>
     </ul>
   </nav>
-  <h3 class="text-muted">WERZUKITTEHSDAD</h3>
 </div>

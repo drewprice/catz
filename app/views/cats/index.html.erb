@@ -1,5 +1,8 @@
-<h1>Cats#index</h1>
-<p>
-  <%= link_to 'Moar Kittehz', root_path %>
-</p>
-<%= render @cats %>
+<%= link_to root_path do %>
+  Moar Kittehs <%= fa_icon 'chevron-right 4x' %>
+<% end %>
+<% @cats.each do |cat| %>
+  <%= link_to cat_path(cat.giphy_id) do %>
+    <img src="<%= cat.gif.url %>" id="<%= cat.giphy_id %>"  class="img-responsive img-rounded center-block"/>
+  <% end %>
+<% end %>

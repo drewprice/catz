@@ -1,3 +1,21 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 @import "jumbotron-narrow";
+
+a {
+  text-transform: uppercase;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.header {
+  margin-bottom: 0;
+  border: none;
+}
+
+.footer {
+  border: none;
+}

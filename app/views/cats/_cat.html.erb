@@ -1,3 +1,14 @@
 <%= link_to cat_path(cat.giphy_id) do %>
-  <img src="<%= cat.gif.url %>" id="<%= cat.giphy_id %>" />
+  <img src="<%= cat.gif.url %>" id="<%= cat.giphy_id %>"  class="img-responsive img-rounded center-block"/>
 <% end %>
+<div class="pull-left">
+  <%= render 'like' %>
+</div>
+<div class="pull-right">
+  <%= render 'moar' %>
+</div>
+<br>
+<div class="clear-both">
+  <%= render 'fact' %>
+  <%= render 'tweet' %>
+</div>

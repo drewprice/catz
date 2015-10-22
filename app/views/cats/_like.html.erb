@@ -1,9 +1,13 @@
 <% if user_signed_in? && current_user.cats_include?(@cat) %>
+
   <%= link_to cat_path(@cat.giphy_id), method: :delete do %>
-    DISLIKE
+    <%= fa_icon 'heart 4x' %>
   <% end %>
+
 <% else %>
+
   <%= link_to cat_path(@cat.giphy_id), method: :post do %>
-    LIKE
+    <%= fa_icon 'heart-o 4x' %>
   <% end %>
+
 <% end %>
