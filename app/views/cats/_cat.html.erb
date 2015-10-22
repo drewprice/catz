@@ -1,14 +1,26 @@
-<%= link_to cat_path(cat.giphy_id) do %>
-  <img src="<%= cat.gif.url %>" id="<%= cat.giphy_id %>"  class="img-responsive img-rounded center-block"/>
-<% end %>
-<div class="pull-left">
-  <%= render 'like' %>
-</div>
-<div class="pull-right">
-  <%= render 'moar' %>
-</div>
-<br>
-<div class="clear-both">
-  <%= render 'fact' %>
-  <%= render 'tweet' %>
+<div class="text-center">
+  <div class="row">
+    <%= link_to cat_path(cat.giphy_id) do %>
+    <%= image_tag cat.gif.url,
+                      id: cat.giphy_id,
+                      class: 'img-responsive img-rounded center-block' %>
+    <% end %>
+  </div>
+  <div class="row">
+    <div class="pull-left">
+      <%= render 'like' %>
+    </div>
+    <div class="pull-right">
+      <%= render 'moar' %>
+    </div>
+  </div>
+  <div class="row text-center">
+    <%= render 'fact' %>
+    •
+    <%= render 'tweet' %>
+    •
+    <%= link_to cats_path do %>
+      <%= fa_icon 'archive' %>
+    <% end %>
+  </div>
 </div>

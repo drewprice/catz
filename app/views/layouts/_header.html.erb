@@ -8,11 +8,6 @@
             <img src="<%= current_user.image %>" alt="current_user.name" class="img-circle" />
           <% end %>
         </li>
-        <li>
-          <%= link_to cats_path do %>
-            <%= fa_icon 'archive 4x' %>
-          <% end %>
-        </li>
       <% else %>
         <li>
           <%= link_to '/auth/twitter' do %>
