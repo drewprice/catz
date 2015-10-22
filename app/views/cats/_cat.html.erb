@@ -7,20 +7,14 @@
     <% end %>
   </div>
   <div class="row">
-    <div class="pull-left">
+    <div class="col-sm-4 actions pull-left">
       <%= render 'like' %>
     </div>
-    <div class="pull-right">
+    <div class="col-sm-4 actions pull-right">
       <%= render 'moar' %>
     </div>
   </div>
   <div class="row text-center">
-    <%= render 'fact' %>
-    •
-    <%= render 'tweet' %>
-    •
-    <%= link_to cats_path do %>
-      <%= fa_icon 'archive' %>
-    <% end %>
+    <%= render 'extras' %>
   </div>
 </div>

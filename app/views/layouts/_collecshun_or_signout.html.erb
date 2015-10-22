@@ -1,0 +1,8 @@
+<%= link_to cats_path do %>
+  <% if current_page?('/cats') %>
+    Sign out
+  <% else %>
+    <%= current_user.nickname %>
+  <% end %>
+  <img src="<%= current_user.image %>" alt="current_user.name" class="img-circle" />
+<% end %>

@@ -2,19 +2,17 @@
   <nav>
     <ul class="nav nav-pills pull-right">
       <% if user_signed_in? %>
-        <li>
-          <%= link_to sign_out_path, method: :delete do %>
-            <%= current_user.nickname %>
-            <img src="<%= current_user.image %>" alt="current_user.name" class="img-circle" />
-          <% end %>
+        <li role="presentation">
+          <%= render 'layouts/collecshun_or_signout' %>
         </li>
       <% else %>
-        <li>
+        <li role="presentation">
           <%= link_to '/auth/twitter' do %>
             Sign in <%= fa_icon 'twitter' %>
           <% end %>
         </li>
       <% end %>
     </ul>
+    <h3 class="text-muted"><a href="<%= ENV['URL'] %>">WERZUKITTEHSDAD</a></h3>
   </nav>
 </div>
