@@ -1,11 +1,10 @@
 var notice = $('<%= j render "shared/sign_in_notice" %>').hide()
 
-$('.jumbotron').prepend(notice)
+if (!$('.alert').length) {
+  $('.jumbotron').prepend(notice);
+  $('.alert').slideDown()
 
-$('.alert').slideDown()
-
-window.setTimeout(function(){
-  $('.alert').slideUp(function(){
-    $(this).remove()
-  })
-}, 3000)
+  window.setTimeout(function(){
+    hideAlert();
+  }, 4000);
+}

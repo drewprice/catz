@@ -19,6 +19,7 @@ body {
 
   .jumbotron .gif {
     border: 10px solid #fff;
+    max-height: 400px;
   }
 
 a {
@@ -91,18 +92,19 @@ a:hover {
 .extras a {
   margin: 15px;
 }
+  footer a:hover {
+    color: #A61C00;
+  }
   .fa-twitter {
     color: #45818E;
   }
 
   .twitter-share-button {
-    padding: 10px 15px;
-    border-radius: 4px;
-    background: #45818E;
+    color: #45818E;
   }
 
   .twitter-share-button:hover {
-    background: #336d79;
+    color: #336d79;
   }
 
 .collecshun {
@@ -135,6 +137,16 @@ a:hover {
   -ms-transform: rotate(45deg);
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+.navbar-default {
+  border: none;
+  min-height: 40px;
+}
+
+footer.navbar {
+  padding-top: 5px;
+  border-top: 5px solid #AAAAAA;
 }
 // Edits
 

@@ -1,6 +1,6 @@
 
 <% flash.each do |name, msg| %>
-  <div class="text-center alert fade in">
+  <div class="text-center alert fade in" onclick="hideAlert()">
     <%= content_tag :div, msg, class: name %>
   </div>
 <% end %>
