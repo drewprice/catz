@@ -20,8 +20,11 @@ class Giphy
     Giphy::Response.parse(request(url))
   end
 
-  # def self.translate(phrase)
-  # end
+  def self.translate(phrase, options = { rating: 'y,g', fmt: nil })
+    params = build_params(options.merge(s: URI.encode(phrase)))
+    url = BASE_URL + 'translate?' + params
+    Giphy::Response.parse(request(url))
+  end
 
   def self.random(options = { tag: nil, rating: 'y,g', fmt: nil })
     params = build_params(options)

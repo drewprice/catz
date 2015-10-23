@@ -4,7 +4,9 @@ class Giphy
     attr_reader :id, :images, :rating
 
     def self.parse(data)
-      if data.is_a? Array
+      if data.empty?
+        Giphy.translate('404')
+      elsif data.is_a? Array
         data.map { |obj| new(obj) }
       else
         new(data)

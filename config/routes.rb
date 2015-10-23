@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'sessions/create'
-
   root 'cats#new'
+
 
   get 'auth/failure', to: redirect('/')
   get 'auth/:provider/callback', to: 'sessions#create'
+  get 'sessions/create'
   delete 'sign-out', to: 'sessions#destroy', as: :sign_out
 
   get 'cats', to: 'cats#index', as: :cats

@@ -14,6 +14,11 @@ class Cat < ActiveRecord::Base
     new(gif: gif, giphy_id: gif.id)
   end
 
+  def self.from_giphy_translate(phrase)
+    gif = Giphy.translate(phrase)
+    new(gif: gif, giphy_id: gif.id)
+  end
+
   def gif=(gif)
     @gif = gif
   end
