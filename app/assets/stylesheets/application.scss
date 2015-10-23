@@ -2,22 +2,58 @@
 @import "bootstrap";
 @import "font-awesome";
 @import "jumbotron-narrow";
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,300);
+
+body {
+  font-family: Oswald;
+  font-weight: 500;
+  background: #F4CCCC;
+}
+
+.jumbotron {
+  background: transparent;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: none;
+}
+
+  .jumbotron .gif {
+    border: 10px solid #fff;
+  }
 
 a {
   text-transform: uppercase;
+  color: #fff;
+}
+
+img {
+  border: 5px solid #45818E;
+}
+
+.brown {
+  color: #7F6000;
 }
 
 a:hover {
   text-decoration: none;
+  color: #fff;
 }
 
 .header {
   margin-bottom: 0;
   border: none;
+  padding: none;
 }
 
 .header h3 {
-  line-height: 68px;
+  line-height: 75px;
+  font-weight: 700;
+  font-size: 3em;
+  text-shadow: 2px 2px #AAAAAA;
+}
+
+.header h3:hover {
+  text-shadow: 2px 2px #666666;
 }
 
 .footer {
@@ -28,12 +64,77 @@ a:hover {
   padding: 30px 0;
 }
 
+  .actions.pull-left {
+    margin-left: 50px;
+  }
+
+  .actions.pull-right {
+    margin-right: 50px;
+  }
+
+  .actions a {
+    color: #AAAAAA;
+  }
+
+  .actions a:hover {
+    color: #666666;
+  }
+
+  .fa-heart-o:before, .fa-chevron-right:before {
+    color: #fff;
+  }
+
+  .fa-heart:before {
+    color: #A61C00;
+  }
+
 .extras a {
   margin: 15px;
 }
+  .fa-twitter {
+    color: #45818E;
+  }
 
+  .twitter-share-button {
+    padding: 10px 15px;
+    border-radius: 4px;
+    background: #45818E;
+  }
+
+  .twitter-share-button:hover {
+    background: #336d79;
+  }
+
+.collecshun {
+  margin: 20px auto;
+}
+
+.collecshun:hover {
+  box-shadow: 5px 5px #7F6000;
+}
+
+  .moar {
+    font-size: 2.5em;
+    color: #45818E;
+  }
+
+  .moar:hover {
+    color: #336d79;
+  }
+
+.alert {
+  font-weight: 700;
+  font-size: 2em;
+  color: #222222;
+  text-transform: uppercase;
+}
 // Edits
 
 .nav-pills > li > a {
   line-height: 58px;
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+  color: #7F6000;
+  background: #fff;
 }

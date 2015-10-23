@@ -1,0 +1,10 @@
+<footer class="footer">
+  <div class="row">
+    <%= link_to 'MADE BY DREW', 'http://drewfrom.space', class: 'brown' %>
+    <% unless current_page?('/cats') %>
+    <div class="pull-right">
+      <%= render 'cats/tweet' %>
+    </div>
+    <% end %>
+  </div>
+</footer>

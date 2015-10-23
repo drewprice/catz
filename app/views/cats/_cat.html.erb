@@ -3,7 +3,7 @@
     <%= link_to cat_path(cat.giphy_id) do %>
     <%= image_tag cat.gif.url,
                       id: cat.giphy_id,
-                      class: 'img-responsive img-rounded center-block' %>
+                      class: 'img-responsive img-rounded center-block gif' %>
     <% end %>
   </div>
   <div class="row">
@@ -13,8 +13,5 @@
     <div class="col-sm-4 actions pull-right">
       <%= render 'moar' %>
     </div>
-  </div>
-  <div class="row text-center">
-    <%= render 'extras' %>
   </div>
 </div>

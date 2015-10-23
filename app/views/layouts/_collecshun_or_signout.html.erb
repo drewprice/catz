@@ -1,8 +1,11 @@
-<%= link_to cats_path do %>
-  <% if current_page?('/cats') %>
+<% if current_page?('/cats') %>
+  <%= link_to sign_out_path, method: :delete do %>
     Sign out
-  <% else %>
-    <%= current_user.nickname %>
+    <img src="<%= current_user.image %>" alt="current_user.name" class="img-circle" />
   <% end %>
-  <img src="<%= current_user.image %>" alt="current_user.name" class="img-circle" />
+<% else %>
+  <%= link_to cats_path, class: 'brown' do %>
+    <%= current_user.nickname %>
+    <img src="<%= current_user.image %>" alt="current_user.name" class="img-circle" />
+  <% end %>
 <% end %>

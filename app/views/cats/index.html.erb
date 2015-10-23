@@ -1,8 +1,9 @@
-<%= link_to root_path do %>
-  Moar Kittehs <%= fa_icon 'chevron-right 4x' %>
-<% end %>
+<%= link_to 'Moar kittehs?!!?1!', root_path, class: 'moar' %>
+
 <% @cats.each do |cat| %>
   <%= link_to cat_path(cat.giphy_id) do %>
-    <img src="<%= cat.gif.url %>" id="<%= cat.giphy_id %>"  class="img-responsive img-rounded center-block"/>
+    <img src="<%= cat.gif.url %>" id="<%= cat.giphy_id %>"  class="img-responsive img-rounded center-block gif collecshun"/>
   <% end %>
 <% end %>
+
+<%= link_to 'Moar kittehs?!!?1!', root_path, class: 'moar' %>
