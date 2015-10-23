@@ -1,5 +1,4 @@
 class CatsController < ApplicationController
-  before_action :init_focus, only: :new
   before_action :reset_focus, only: :index
   before_action :set_cat, only: :destroy
   before_action :find_or_initialize, only: :create
