@@ -1,5 +1,7 @@
-<% if user_signed_in? && current_user.cats_include?(@cat) %>
-  <%= render 'unlikable' %>
-<% else %>
-  <%= render 'likable' %>
-<% end %>
+<div class="like">
+  <% if user_signed_in? && current_user.cats_include?(@cat) %>
+    <%= render 'unlikable' %>
+  <% else %>
+    <%= render 'likable' %>
+  <% end %>
+</div>
