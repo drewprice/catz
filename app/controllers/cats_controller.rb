@@ -1,4 +1,6 @@
 class CatsController < ApplicationController
+  before_action :init_focus, only: :new
+  before_action :reset_focus, only: :index
   before_action :set_cat, only: :destroy
   before_action :find_or_initialize, only: :create
   before_filter :authenticate_user!, only: [:create, :index]
@@ -8,6 +10,9 @@ class CatsController < ApplicationController
   end
 
   def new
+    @cat = Cat.from_giphy(tag: current_focus)
+  rescue
+    reset_focus
     @cat = Cat.from_giphy
   end
 
@@ -17,10 +22,9 @@ class CatsController < ApplicationController
   end
 
   def show
-    @cat = Cat.from_giphy(params[:giphy_id])
+    @cat = Cat.from_giphy(giphy_id: query_param)
   rescue
-    flash[:notice] = 'U can has easter egg.'
-    @cat = Cat.from_giphy_translate(params[:giphy_id])
+    easter_egg
   end
 
   def destroy
@@ -35,10 +39,28 @@ class CatsController < ApplicationController
 
   def find_or_initialize
     @cat = Cat.find_by(giphy_id: params[:giphy_id])
-    @cat = Cat.from_giphy(params[:giphy_id]) unless @cat
+    @cat = Cat.from_giphy(giphy_id: params[:giphy_id]) unless @cat
   end
 
   def cat_params
     params.require(:cat).permit(:giphy_id)
+  end
+
+  def query_param
+    params[:giphy_id]
+  end
+
+  def easter_egg
+    flash[:notice] = "U can has #{query_param}!"
+    set_focus(query_param)
+    @cat = Cat.from_giphy_translate(query_param)
+  rescue
+    no_easter_egg
+  end
+
+  def no_easter_egg
+    reset_focus
+    flash[:notice] = "U cant has #{query_param}."
+    @cat = Cat.from_giphy_translate('not found!')
   end
 end

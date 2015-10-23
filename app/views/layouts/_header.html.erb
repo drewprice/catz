@@ -13,6 +13,14 @@
         </li>
       <% end %>
     </ul>
-    <h3 class="text-muted"><a href="<%= ENV['URL'] %>">WERZUKITTEHSDAD</a></h3>
+    <h3 class="text-muted">
+      <a href="<%= ENV['URL'] %>">
+        <% if current_focus == ENV['FOCUS'] %>
+          WERZUKITTEHSDAD
+        <% else %>
+          WERZU<%= current_focus.gsub(/\W/, '') %>DAD
+        <% end %>
+      </a>
+    </h3>
   </nav>
 </div>

@@ -5,7 +5,7 @@ class Giphy
 
     def self.parse(data)
       if data.empty?
-        Giphy.translate('404')
+        nil
       elsif data.is_a? Array
         data.map { |obj| new(obj) }
       else

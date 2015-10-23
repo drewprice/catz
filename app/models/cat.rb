@@ -9,8 +9,8 @@ class Cat < ActiveRecord::Base
   after_find :giphy_sync
   after_initialize :build_tweet
 
-  def self.from_giphy(giphy_id = nil)
-    gif = giphy_id ? Giphy.by_id(giphy_id) : Giphy.random(tag: 'cat')
+  def self.from_giphy(giphy_id: nil, tag: 'cat')
+    gif = giphy_id ? Giphy.by_id(giphy_id) : Giphy.random(tag: tag)
     new(gif: gif, giphy_id: gif.id)
   end
 

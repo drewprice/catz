@@ -20,5 +20,21 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  helper_method :current_user, :user_signed_in?
+  def init_focus
+    session[:focus] ||= ENV['FOCUS']
+  end
+
+  def set_focus(focus)
+    session[:focus] = focus
+  end
+
+  def reset_focus
+    session[:focus] = ENV['FOCUS']
+  end
+
+  def current_focus
+    session[:focus]
+  end
+
+  helper_method :current_user, :user_signed_in?, :current_focus
 end

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def create
-    user = User.from_oauth(env['omniauth.auth'])
+    user = User.from_oauth(ENV['omniauth.auth'])
     session[:user_id] = user.id
 
     if session[:tmp_cat_params]
@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
+    session[:focus] = nil
     redirect_to root_path, notice: "K Bai."
   end
 
