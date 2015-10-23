@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       session[:tmp_cat_params] = cat_params
       redirect_to '/auth/twitter'
     elsif !user_signed_in?
-      redirect_to root_path, alert: 'U HAS 2 BE LOGGD IN.'
+      render 'shared/sign_in_alert'
     end
   end
 
