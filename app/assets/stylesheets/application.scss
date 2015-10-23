@@ -148,6 +148,11 @@ footer.navbar {
   padding-top: 5px;
   border-top: 5px solid #AAAAAA;
 }
+
+a:focus {
+  text-decoration: none;
+  color: #A61C00;
+}
 // Edits
 
 .nav-pills > li > a {

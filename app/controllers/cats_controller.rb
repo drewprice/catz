@@ -50,7 +50,7 @@ class CatsController < ApplicationController
   end
 
   def easter_egg
-    flash[:notice] = "U can has #{query_param}!"
+    flash.now[:notice] = "U can has #{query_param}!"
     set_focus(query_param)
     @cat = Cat.from_giphy_translate(query_param)
   rescue
@@ -59,7 +59,7 @@ class CatsController < ApplicationController
 
   def no_easter_egg
     reset_focus
-    flash[:notice] = "U cant has #{query_param}."
+    flash.now[:notice] = "U cant has #{query_param}."
     @cat = Cat.from_giphy_translate('not found!')
   end
 end

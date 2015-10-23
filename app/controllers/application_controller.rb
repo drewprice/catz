@@ -22,7 +22,11 @@ class ApplicationController < ActionController::Base
   end
 
   def init_focus
-    session[:focus] ||= ENV['FOCUS']
+    if request.env["HTTP_ACCEPT"].include? 'html'
+      session[:focus] = ENV['FOCUS']
+    else
+      session[:focus] ||= ENV['FOCUS']
+    end
   end
 
   def set_focus(focus)
