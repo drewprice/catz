@@ -25,3 +25,10 @@ function hideAlert() {
     $(this).remove();
   });
 }
+
+function slideReplace(selector, newHiddenElement) {
+  $(selector).slideUp(function(){
+    $(this).replaceWith(newHiddenElement);
+    $(selector).slideDown();
+  });
+}

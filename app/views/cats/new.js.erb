@@ -1,8 +1,8 @@
-var newCat   = $('<%= j render partial: "cat_gif", locals: { cat: @cat } %>').hide()
-$('#cat').slideUp(function(){
-  $(this).replaceWith(newCat);
-  $('#cat').slideDown();
-});
+var newCat   = $('<%= j render partial: "cat_gif", locals: { cat: @cat } %>').hide();
+slideReplace('#cat', newCat);
+
+var newTitle = $('<%= j render "layouts/title" %>').hide();
+if ($('#title').text() != newTitle.text()) slideReplace('#title', newTitle);
 
 var newLike  = $('<%= j render "like" %>')
 var newTweet = $('<%= j render "tweet" %>')

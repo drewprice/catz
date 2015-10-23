@@ -1,0 +1,9 @@
+<h3 class="text-muted" id="title">
+  <a href="<%= ENV['URL'] %>">
+    <% if current_focus == ENV['FOCUS'] %>
+      WERZUKITTEHSDAD
+    <% else %>
+      WERZU<%= current_focus.gsub(/\W/, '') %>DAD
+    <% end %>
+  </a>
+</h3>
