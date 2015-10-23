@@ -17,6 +17,7 @@ function clickMoar(){
 
 function clickLike() {
   $('#likable').click()
+  $('#unlikable').click()
 }
 
 function hideAlert() {
