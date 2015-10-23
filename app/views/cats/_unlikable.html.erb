@@ -1,0 +1,3 @@
+<%= link_to cat_path(@cat.giphy_id), method: :delete, id: 'unlikable', remote: true do %>
+  <%= fa_stacked_icon "heart inverse", base: "circle", class: "fa-3x" %>
+<% end %>

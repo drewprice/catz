@@ -1,13 +1,5 @@
 <% if user_signed_in? && current_user.cats_include?(@cat) %>
-
-  <%= link_to cat_path(@cat.giphy_id), method: :delete do %>
-    <%= fa_stacked_icon "heart inverse", base: "circle", class: "fa-3x" %>
-  <% end %>
-
+  <%= render 'unlikable' %>
 <% else %>
-
-  <%= link_to cat_path(@cat.giphy_id), method: :post do %>
-    <%= fa_stacked_icon "heart-o inverse", base: "circle", class: "fa-3x" %>
-  <% end %>
-
+  <%= render 'likable' %>
 <% end %>

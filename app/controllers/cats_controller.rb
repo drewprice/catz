@@ -14,8 +14,6 @@ class CatsController < ApplicationController
   def create
     current_user.cats << @cat
     @cat.save
-
-    render :new
   end
 
   def show
@@ -26,7 +24,6 @@ class CatsController < ApplicationController
 
   def destroy
     current_user.cats.delete(@cat)
-    render :new
   end
 
   private
